@@ -24,9 +24,9 @@ final class Article
     /**
      * Article constructor.
      *
-     * @param int       $id           ID dell'entità
-     * @param string    $title
-     * @param string    $body
+     * @param int                $id           ID dell'entità
+     * @param string             $title
+     * @param string             $body
      * @param \DateTimeImmutable $creationDate
      */
     public function __construct(int $id, string $title, string $body, \DateTimeImmutable $creationDate)
