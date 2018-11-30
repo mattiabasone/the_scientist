@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace LaravelDay\Article;
 
+use LaravelDay\Article\ValueObject\Body;
+use LaravelDay\Article\ValueObject\Id;
+use LaravelDay\Article\ValueObject\Title;
+
 final class Article
 {
-    /** @var string */
+    /** @var \LaravelDay\Article\ValueObject\Title */
     private $title;
     /**
-     * @var string
+     * @var \LaravelDay\Article\ValueObject\Body
      */
     private $body;
     /**
@@ -17,19 +21,19 @@ final class Article
      */
     private $creationDate;
     /**
-     * @var int
+     * @var \LaravelDay\Article\ValueObject\Id
      */
     private $id;
 
     /**
      * Article constructor.
      *
-     * @param int                $id           ID dell'entità
-     * @param string             $title
-     * @param string             $body
+     * @param Id                 $id           ID dell'entità
+     * @param Title              $title
+     * @param Body               $body
      * @param \DateTimeImmutable $creationDate
      */
-    public function __construct(int $id, string $title, string $body, \DateTimeImmutable $creationDate)
+    public function __construct(Id $id, Title $title, Body $body, \DateTimeImmutable $creationDate)
     {
         $this->title = $title;
         $this->body = $body;
@@ -38,23 +42,23 @@ final class Article
     }
 
     /**
-     * @return string
+     * @return \LaravelDay\Article\ValueObject\Title
      */
-    public function getTitle(): string
+    public function getTitle(): Title
     {
         return $this->title;
     }
 
     /**
-     * @return string
+     * @return \LaravelDay\Article\ValueObject\Body
      */
-    public function getBody(): string
+    public function getBody(): Body
     {
         return $this->body;
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeImmutable
      */
     public function getCreationDate(): \DateTimeImmutable
     {
@@ -62,9 +66,9 @@ final class Article
     }
 
     /**
-     * @return int
+     * @return \LaravelDay\Article\ValueObject\Id
      */
-    public function getId(): int
+    public function getId(): Id
     {
         return $this->id;
     }

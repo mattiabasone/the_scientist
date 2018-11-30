@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Tests\Unit\Domain\Article;
 
 use LaravelDay\Article\Article;
+use LaravelDay\Article\ValueObject\Body;
+use LaravelDay\Article\ValueObject\Id;
+use LaravelDay\Article\ValueObject\Title;
 use Tests\TestCase;
 
 class ArticleTest extends TestCase
@@ -16,9 +19,9 @@ class ArticleTest extends TestCase
      */
     public function shouldCreateAnArticle()
     {
-        $id = 1;
-        $title = 'Questo è il titolo';
-        $body = 'Questo è il body';
+        $id = new Id(1);
+        $title = new Title('Questo è il titolo');
+        $body = new Body("Questo è il mio body e dev'essere più lungo del title");
         $creationDate = new \DateTimeImmutable();
 
         $article = new Article($id, $title, $body, $creationDate);
